@@ -1,0 +1,92 @@
+/* css/calculator.css - SADECE Yatırım Hesaplama Stilleri */
+
+#yatirim-hesaplama {
+  /* Arka plan ana styles.css'ten veya doğrudan body'den gelebilir.
+     İsterseniz buraya özel bir arka plan da ekleyebilirsiniz. */
+  background-color: #f8f9fa;
+}
+
+/* Hesaplama Kartı Stili */
+.calculator-card {
+  background-color: var(
+    --background-solid,
+    white
+  ); /* Ana CSS'ten değişkeni al veya beyaz kullan */
+  border: 1px solid var(--secondary-color, #dee2e6); /* Ana CSS'ten değişkeni al veya varsayılan */
+  border-radius: 0.75rem;
+  box-shadow: var(
+    --shadow-dark,
+    0 0.5rem 1rem rgba(0, 0, 0, 0.15)
+  ); /* Ana CSS'ten değişkeni al veya varsayılan */
+}
+
+/* Özel Range Slider (Progress Bar Görünümü) */
+.custom-range {
+  height: 10px; /* Kalınlık */
+  cursor: pointer;
+}
+/* Tarayıcıya özel stiller */
+.custom-range::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  margin-top: -5px; /* Dikeyde ortala */
+  background: var(
+    --primary-color,
+    black
+  ); /* Ana CSS'ten değişkeni al veya siyah kullan */
+  border-radius: 50%;
+  cursor: pointer;
+}
+.custom-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--primary-color, black);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+.custom-range::-webkit-slider-runnable-track {
+  background: #e9ecef; /* Yol rengi */
+  border-radius: 5px;
+}
+.custom-range::-moz-range-track {
+  background: #e9ecef;
+  border-radius: 5px;
+  height: 10px;
+}
+
+/* Sonuç Alanı */
+#resultsArea {
+  background-color: var(--background-solid, white);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-light, 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075));
+  margin-top: 3rem;
+}
+
+/* Grafik Konteyneri */
+#growthChart {
+  max-height: 400px;
+}
+
+/* Para Yağmuru Animasyonu */
+.money-icon {
+  position: absolute;
+  font-size: 1.5rem;
+  color: #28a745;
+  user-select: none;
+  animation: fall linear forwards;
+  opacity: 0.8;
+}
+
+/* Düşme Animasyonu */
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}

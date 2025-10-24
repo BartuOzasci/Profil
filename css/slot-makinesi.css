@@ -1,0 +1,87 @@
+/* css/slot-makinesi.css - Slot Makinesi Oyunu Stilleri */
+
+#slot-machine-section {
+  background-color: #f8f9fa; /* Açık gri arka plan */
+}
+
+/* Slot Makinesi Gövdesi */
+.slot-machine-body {
+  background: linear-gradient(145deg, #ffffff, #e6e6e6); /* Hafif gradient */
+  border: 5px solid #adb5bd; /* Gri çerçeve */
+  border-radius: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2),
+    inset 0 -5px 10px rgba(0, 0, 0, 0.1);
+  position: relative; /* İç gölgeler ve efektler için */
+}
+
+/* Makaraların Bulunduğu Alan */
+.reels {
+  background-color: #343a40; /* Koyu arka plan */
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Tek Makara (Görüntüleme Penceresi) */
+.reel {
+  width: 80px; /* Makara genişliği */
+  height: 100px; /* Makara yüksekliği */
+  background-color: #fff; /* İç arka plan */
+  margin: 0 10px; /* Makaralar arası boşluk */
+  border-radius: 0.25rem;
+  overflow: hidden; /* Dönen sembolleri kırp */
+  position: relative; /* İçerik için */
+  border: 1px solid #ced4da;
+}
+
+/* Makaradaki Sembolleri Tutan İç Konteyner (Animasyon buna uygulanacak) */
+.reel-symbols {
+  display: flex;
+  flex-direction: column; /* Sembolleri dikey diz */
+  /* Başlangıçta animasyonsuz */
+  transition: transform 0.3s ease-out; /* Durma efekti için */
+}
+
+/* Tek Sembol */
+.reel-symbol {
+  width: 100%;
+  height: 100px; /* Makara yüksekliği ile aynı */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem; /* Sembol boyutu */
+  flex-shrink: 0; /* Boyutun küçülmesini engelle */
+}
+
+/* Dönme Animasyonu */
+.reel-symbols.spinning {
+  /* Hızlı ve uzun bir geçiş - durdurma efekti JS ile yapılacak */
+  transition: transform 1s cubic-bezier(0.33, 1.11, 0.77, 1.14); /* Hızlı başla yavaşla */
+  /* Çok büyük bir Y değeri ile aşağı kaydır */
+  /* transform: translateY(-5000px); JS ile ayarlanacak */
+}
+
+/* Sonuç Mesajı */
+.result-message-slot {
+  transition: color 0.3s ease;
+}
+.result-message-slot.win {
+  color: #198754; /* Yeşil */
+  animation: pulse 0.5s 2; /* Kazanma efekti */
+}
+.result-message-slot.lose {
+  color: #dc3545; /* Kırmızı */
+}
+
+/* Kazanma Parlama Efekti */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

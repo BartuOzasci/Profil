@@ -1,0 +1,1007 @@
+/* style.css - Özel Stil Dosyası */
+
+:root {
+  /* Renkler */
+  --primary-color: #000;
+  --secondary-color: #9e9e9e; /* Güncellediğiniz soluk renk */
+  --background-solid: rgba(255, 255, 255, 1);
+  --background-transparent: rgba(255, 255, 255, 0.85);
+
+  /* Efektler ve Gölgeler */
+  --blur-effect: blur(10px);
+  --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-dark: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  /* Ölçüler */
+  --logo-height: 55px;
+  --navbar-height: 70px; /* Yaklaşık navbar yüksekliği */
+
+  /* Hero Section Arka Plan Resmi */
+  --hero-bg-image: url("../img/arkaplan.png");
+
+  /* Geçişler */
+  --transition-speed: 0.3s;
+}
+
+/* --- Genel Sıfırlama ve Body Stilleri --- */
+body {
+  padding-top: var(
+    --navbar-height
+  ); /* Navbar sabit olduğu için içeriğin altından başlamasını sağlar */
+}
+
+/* --- Header (Navbar) Stilleri --- */
+.custom-navbar {
+  background-color: var(--background-transparent);
+  backdrop-filter: var(--blur-effect);
+  -webkit-backdrop-filter: var(--blur-effect);
+  transition: background-color var(--transition-speed) ease-in-out;
+  box-shadow: var(--shadow-light);
+  height: var(--navbar-height); /* Navbar yüksekliğini de sabitleyebiliriz */
+}
+
+.custom-navbar.scrolled {
+  background-color: var(--background-solid);
+  box-shadow: var(--shadow-dark);
+}
+
+/* --- Logo/Marka Stili --- */
+.custom-logo {
+  height: var(--logo-height);
+  width: auto;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  color: var(--primary-color);
+  line-height: var(
+    --logo-height
+  ); /* Logoyla aynı dikey hizada olmasını sağlar */
+}
+
+/* --- Menü Link Stilleri (Parlak/Soluk) --- */
+.navbar-nav .nav-link {
+  color: var(--secondary-color);
+  font-weight: 500;
+  transition: color 0.2s ease;
+  margin: 0 5px;
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--primary-color);
+}
+
+/* --- Mobil Dropdown Menü Çerçevesi --- */
+@media (max-width: 991.98px) {
+  .custom-navbar .navbar-collapse {
+    /* Açılır menüye bir çerçeve ekler (soluk renk değişkenini kullanır) */
+    border: 1px solid var(--secondary-color);
+
+    margin-top: -0.4rem; /* Menü ile navbar arasındaki boşluk azaltıldı */
+
+    /* Kenarları yuvarlatma */
+    border-radius: 0.375rem; /* Bootstrap'in varsayılan .rounded değeri */
+
+    /* GÜNCELLENDİ: Navbar'dan ayırmak için olan üst boşluk kaldırıldı */
+    /* margin-top: 0.5rem; */
+
+    /* Arka planı tam opak beyaz yapar (şeffaf navbar'ın üstünde iyi görünür) */
+    background-color: var(--background-solid);
+
+    /* Linklerin kenarlara yapışmaması için iç boşluk */
+    padding: 0.75rem;
+
+    /* (İsteğe bağlı) Üst köşelerin yuvarlaklığını sıfırla ki tam yapışık dursun */
+    border-top-left-radius: 50;
+    border-top-right-radius: 50;
+
+    /* (İsteğe bağlı) Navbar'ın gölgesinin üstüne çıkması için hafif negatif margin */
+    /* margin-top: -1px; */ /* Eğer arada hala ince bir çizgi görünürse bunu deneyin */
+  }
+}
+
+/* --- Hero Section Stilleri --- */
+#hero-section {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - var(--navbar-height));
+  background: var(--hero-bg-image) no-repeat center center;
+  background-size: cover;
+  color: white;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+#hero-section .container {
+  z-index: 2;
+}
+
+#hero-section h1 {
+  font-size: 4.5rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+#hero-section .lead {
+  font-size: 2.75rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Typewriter Cursor Stili */
+.typewriter-cursor {
+  display: inline-block;
+  animation: blink-caret 0.75s step-end infinite;
+  font-weight: 300;
+  opacity: 1;
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* --- YENİ EKLENEN BÖLÜM: Hakkımda Stilleri --- */
+#hakkimda {
+  /* Çerçevenin "beyaz" arka plandan ayrışması için hafif gri arka plan */
+  background-color: #f8f9fa;
+}
+
+.custom-frame {
+  /* Çerçevenin kendisi beyaz olacak */
+  background-color: var(--background-solid);
+  /* Çerçeve kenarlığı (güncellediğiniz soluk renk) */
+  border: 1px solid var(--secondary-color);
+  /* Köşeleri yuvarlatma */
+  border-radius: 0.5rem;
+  /* Hafif gölge efekti */
+  box-shadow: var(--shadow-light);
+}
+
+#hakkimda h2 {
+  color: var(--primary-color);
+}
+
+/* --- YENİ EKLENEN BÖLÜM: Ana Buton Stili (Bootstrap'i Ezer) --- */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition: var(--transition-speed);
+}
+
+.btn-primary:hover {
+  /* Hover durumunda rengi hafifçe koyulaştır */
+  background-color: #333;
+  border-color: #333;
+  transform: translateY(-2px); /* Butona hafif kalkma efekti */
+  box-shadow: var(--shadow-dark);
+}
+
+/* --- YENİ EKLENEN BÖLÜM: Galeri Stilleri --- */
+#galeri {
+  /* Arka planı, hakkımda bölümü ile aynı yapar */
+  background-color: #f8f9fa;
+}
+
+#galeri h2 {
+  color: var(--primary-color);
+}
+
+/* Slider'ın "zıplamasını" (farklı boyutta resimlerde yüksekliğin değişmesini)
+  engellemek için en-boy oranını (aspect-ratio) sabitliyoruz.
+*/
+#galeri .carousel-item {
+  aspect-ratio: 16 / 9; /* 16:9 (Geniş Ekran) en-boy oranı */
+  overflow: hidden; /* Taşmaları gizle */
+}
+
+/* Resimlerin, bozulmadan bu alanı doldurmasını sağlıyoruz */
+#galeri .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Görüntüyü kırparak sığdırır */
+  object-position: center; /* Görüntüyü ortalar */
+}
+
+/* Slider oklarının görünürlüğünü artırma (İsteğe bağlı) */
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* --- Hava Durumu Stilleri (Güncellendi) --- */
+#hava-durumu {
+  position: relative;
+  background: var(--hero-bg-image) no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+  z-index: 1;
+  /* margin-bottom: 3rem; - KALDIRILDI (Bir sonraki bölüme taşındı) */
+}
+/* Hava durumu bölümü için karartma overlay'i */
+#hava-durumu::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Hero'dan (0.4) biraz daha koyu bir overlay (0.7) */
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+
+#hava-durumu h2 {
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Dropdown menünün koyu arka planda görünür olması */
+#city-select {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Şeffaf (Glassmorphism) Kart Stili */
+.weather-card {
+  /* İstediğiniz şeffaf görünüm */
+  background-color: rgba(255, 255, 255, 0.1);
+  /* "Bulanık cam" efekti */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.weather-card:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.weather-card h5 {
+  /* Saat */
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.weather-card img {
+  /* İkon */
+  width: 60px;
+  height: 60px;
+  margin: 0.5rem auto;
+  /* İkonun filtre yemesini engelle (Safari için) */
+  -webkit-filter: none;
+  filter: none;
+}
+
+.weather-card .temp {
+  /* Derece */
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* --- YENİ EKLENEN BÖLÜM: Tarihte Bugün (Timeline) Stilleri --- */
+#tarihte-bugun {
+  /* Hakkımda ve Galeri ile aynı açık arka plan */
+  background-color: #f8f9fa;
+  /* Footer'dan ayırmak için boşluk */
+  margin-bottom: 0rem;
+}
+
+#tarihte-bugun h2 {
+  color: var(--primary-color);
+}
+
+#tarihte-bugun .lead {
+  color: var(--secondary-color);
+  font-weight: 500;
+}
+
+/* Zaman Tüneli (Timeline) Ana Konteyneri */
+.onthisday-container {
+  position: relative;
+}
+
+/* Zaman Tünelinin Dikey Çizgisi */
+.onthisday-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--secondary-color);
+  /* Geniş ekranda ortala */
+  left: 50%;
+  margin-left: -1px;
+}
+
+/* Zaman Tüneli Öğesi (Olay) */
+.timeline-item {
+  position: relative;
+  margin-bottom: 25px;
+  width: 50%; /* Geniş ekranda yarısı */
+}
+
+/* Zaman Tüneli Öğesi İçeriği (Çerçeve) */
+.timeline-content {
+  background-color: var(--background-solid);
+  border: 1px solid var(--secondary-color);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  box-shadow: var(--shadow-light);
+  position: relative;
+}
+
+.timeline-content p {
+  margin-bottom: 0.5rem;
+}
+
+/* Olayın Yılı */
+.timeline-year {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+}
+
+/* Wikipedia Linki */
+.timeline-content a {
+  color: var(--primary-color);
+  font-weight: 500;
+  transition: var(--transition-speed);
+}
+.timeline-content a:hover {
+  color: #555; /* Hafif soluklaştır */
+}
+
+/* Zaman Tüneli Noktası (Çizgi üzerindeki) */
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  border: 2px solid #f8f9fa; /* Arka plan rengiyle aynı */
+  z-index: 1;
+}
+
+/* Zaman Tüneli - Geniş Ekran (Sol/Sağ Hizalama) */
+
+/* Soldaki öğeler (tek sayılar) */
+.timeline-item:nth-child(odd) {
+  left: 0;
+  padding-right: 25px; /* Çizgiye boşluk */
+  text-align: right;
+}
+.timeline-item:nth-child(odd)::after {
+  right: -7px; /* Çizgiye hizala (14px/2) */
+}
+
+/* Sağdaki öğeler (çift sayılar) */
+.timeline-item:nth-child(even) {
+  left: 50%; /* Sağa it */
+  padding-left: 25px; /* Çizgiye boşluk */
+  text-align: left;
+}
+.timeline-item:nth-child(even)::after {
+  left: -7px; /* Çizgiye hizala */
+}
+
+/* --- Footer Stilleri --- */
+.site-footer {
+  /* Koyu bir arka plan */
+  background-color: #212529;
+  color: var(--background-solid); /* Soluk renk değişkeniniz */
+}
+
+/* --- Sosyal İkon (Yuvarlak Çerçeve) --- */
+.social-icon {
+  display: inline-flex; /* İkonları ortalamak için flex */
+  align-items: center;
+  justify-content: center;
+
+  width: 40px; /* Yuvarlak çerçevenin genişliği */
+  height: 40px; /* Yuvarlak çerçevenin yüksekliği */
+
+  border: 1px solid var(--secondary-color); /* Çerçeve rengi */
+  border-radius: 50%; /* Tamamen yuvarlak yapar */
+
+  color: var(--secondary-color); /* İkon rengi */
+  text-decoration: none;
+
+  margin: 0 5px; /* İkonlar arası boşluk */
+  transition: var(--transition-speed);
+}
+
+.social-icon:hover {
+  /* Hover durumunda ana renginizi (siyah) kullanır */
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  /* Arka plan koyu olunca ikon rengi beyaz olur */
+  color: #fff;
+  transform: translateY(-2px); /* Buton/Hakkımda ile aynı efekt */
+  box-shadow: var(--shadow-dark);
+}
+
+/* YENİ EKLENDİ: Timeline'ı mobil için sol tarafa hizala */
+.onthisday-container::before {
+  /* Dikey çizgiyi sola al */
+  left: 10px;
+  margin-left: 0;
+}
+
+.timeline-item,
+.timeline-item:nth-child(even) {
+  /* Tüm öğeleri tam genişlik yap ve sola hizala */
+  width: 100%;
+  left: 0;
+  padding-left: 30px; /* Soldaki çizgiye boşluk */
+  padding-right: 0;
+  text-align: left;
+}
+
+.timeline-item::after,
+.timeline-item:nth-child(even)::after {
+  /* Noktaları soldaki çizgiye hizala (10px - 14px/2 + 2px border) */
+  left: 4px;
+  right: auto;
+}
+
+/* --- Hakkımda Stilleri (index.html) --- */
+#hakkimda {
+  background-color: #f8f9fa;
+}
+
+.custom-frame {
+  background-color: var(--background-solid);
+  border: 1px solid var(--secondary-color);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-light);
+}
+
+#hakkimda h2 {
+  color: var(--primary-color);
+}
+
+/* --- Portfolyo Sayfası (Kare Profil Resmi) --- */
+.portfolio-profile-img {
+  width: 250px;
+  height: 250px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  border: 4px solid var(--background-solid);
+  border-radius: 0.375rem;
+}
+
+/* --- Yetenekler Bölümü (portfolyo.html) --- */
+#yetenekler {
+  background-color: #f8f9fa;
+}
+
+#yetenekler h2 {
+  color: var(--primary-color);
+}
+
+/* Yetenek Kartı Stili (GÜNCELLENDİ)
+  Çerçeve, arka plan ve gölge kaldırıldı.
+*/
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  /* Sütunların (col) eşit yükseklikte olmasını sağlar */
+  height: 100%;
+  transition: var(--transition-speed);
+
+  /* KALDIRILDI: padding: 1.5rem 1rem; */
+  /* KALDIRILDI: background-color: var(--background-solid); */
+  /* KALDIRILDI: border: 1px solid var(--secondary-color); */
+  /* KALDIRILDI: border-radius: 0.5rem; */
+  /* KALDIRILDI: box-shadow: var(--shadow-light); */
+}
+
+/* GÜNCELLENDİ: Hover durumundan gölge kaldırıldı */
+.skill-item:hover {
+  transform: translateY(-5px);
+  /* KALDIRILDI: box-shadow: var(--shadow-dark); */
+}
+
+/* Renkli logo <img>'leri için boyutlandırma */
+.skill-item img {
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+}
+
+/* Kalan 'i' ikonları (Orange, KNIME) için */
+.skill-item i {
+  color: var(--primary-color);
+}
+
+/* Yetenek adı */
+.skill-item p {
+  font-weight: 600;
+  color: #333;
+  margin-top: 1rem !important;
+}
+
+/* *---YENİ EKLENDİ: İş Geçmişim Bölümü (portfolyo.html) --- * /  */
+#is-gecmisim {
+  /* Arka planı beyaz yapar (varsayılan) */
+  background-color: var(--background-solid);
+}
+
+#is-gecmisim h2 {
+  color: var(--primary-color);
+}
+
+/* İş Tecrübesi Kartı */
+.job-card {
+  /* index.html'deki .custom-frame'e benzer stil */
+  background-color: var(--background-solid);
+  border: 1px solid var(--secondary-color);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-light);
+
+  margin-bottom: 2rem; /* Kartlar arası boşluk */
+  overflow: hidden; /* Köşelerin düzgün görünmesi için */
+  transition: var(--transition-speed);
+}
+
+/* Yetenek kartlarıyla aynı hover efekti */
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-dark);
+}
+
+/* Logo Konteyneri (Sol taraf) */
+.job-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Logonun arka planı (açık gri) */
+  background-color: #f8f9fa;
+  padding: 1rem;
+}
+
+.job-logo {
+  max-width: 100px; /* Logo boyutu */
+  max-height: 80px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* İçerik Alanı (Sağ taraf) */
+.job-content {
+  padding: 1.5rem 2rem;
+}
+
+.job-title {
+  font-weight: 700;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.job-company {
+  font-weight: 500;
+  color: var(--secondary-color); /* Soluk renk */
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.job-content p {
+  font-size: 0.95rem;
+}
+
+/* --- Mobil için İş Geçmişi Kartı Düzenlemesi --- */
+@media (max-width: 767.98px) {
+  .job-logo-container {
+    padding: 2rem 1rem;
+  }
+
+  .job-content {
+    padding: 1.5rem;
+  }
+}
+
+/* --- GÜNCELLENDİ: Diller Bölümü (portfolyo.html) --- */
+#diller {
+  /* Arka planı, "Yeteneklerim" bölümüyle aynı yapar */
+  background-color: #f8f9fa;
+}
+
+#diller h2 {
+  color: var(--primary-color);
+}
+
+/* YENİ EKLENDİ:
+  #diller bölümü için varsayılan hover efektini eziyoruz.
+  Artık kartın kendisi oynamayacak, sadece içindeki bayrak oynayacak.
+*/
+#diller .skill-item:hover {
+  transform: none; /* Kartın kalkma efektini iptal et */
+}
+
+/* Yeni Dil Kartı Stili */
+.language-card {
+  background-color: var(--background-solid);
+  border: 1px solid var(--secondary-color);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-light);
+  padding: 1.5rem;
+  height: 100%; /* Sütunların eşit yükseklikte olmasını sağlar */
+  transition: var(--transition-speed);
+}
+
+.language-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-dark);
+}
+
+/* Bayrak Konteyneri (Sol taraf / Üst) */
+.language-flag-container {
+  /* Dikey hizalama (geniş ekranda) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Yuvarlak Bayrak Stili (Küçültüldü) */
+.language-flag-circle-small {
+  /* SINIF ADI DEĞİŞTİ */
+  width: 80px; /* Küçültüldü (100px -> 80px) */
+  height: 80px; /* Küçültüldü (100px -> 80px) */
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--background-solid);
+  box-shadow: var(--shadow-dark);
+}
+
+/* Dil Detayları (Sağ taraf / Alt) */
+.language-details {
+  /* Mobil görünümde bayrağın altına boşluk ekler */
+  padding-top: 1rem;
+}
+/* Geniş ekranda padding'i sıfırla */
+@media (min-width: 768px) {
+  .language-details {
+    padding-top: 0;
+    padding-left: 1.5rem; /* Bayrakla arayı aç */
+    text-align: left; /* Metni sola hizala */
+  }
+}
+
+/* Dil Adı */
+.language-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+}
+
+/* Seviye Metni */
+.language-level {
+  font-size: 0.95rem;
+  color: var(--secondary-color); /* Soluk renk */
+  font-weight: 500;
+  margin-bottom: 0.75rem; /* Yıldızlarla arayı aç */
+}
+
+/* Yıldızlar Konteyneri */
+.language-stars {
+  font-size: 1.1rem; /* Yıldız boyutu */
+}
+
+/* Dolu Yıldız Rengi (Örn: Altın sarısı) */
+.language-stars .bi-star-fill {
+  color: #ffc107;
+}
+
+/* Yarım Yıldız Rengi (Bootstrap Icons'ta yok ama isterseniz eklenebilir) */
+/* .language-stars .bi-star-half { color: #ffc107; } */
+
+/* Boş Yıldız Rengi (Soluk gri) */
+.language-stars .bi-star {
+  color: var(--secondary-color);
+}
+
+/* GÜNCELLENDİ: Yuvarlak Bayrak Çerçevesi Stili
+  Boyut 100px'e çıkarıldı ve hover animasyonu için transition eklendi.
+*/
+.language-flag-circle {
+  width: 100px; /* BÜYÜTÜLDÜ (80px -> 100px) */
+  height: 100px; /* BÜYÜTÜLDÜ (80px -> 100px) */
+
+  /* Bayrağın daireyi doldurmasını sağlar */
+  object-fit: cover;
+
+  border-radius: 50%;
+  border: 4px solid var(--background-solid); /* BÜYÜTÜLDÜ (3px -> 4px) */
+  box-shadow: var(--shadow-dark);
+
+  /* YENİ: Hover efektinin yumuşak olması için */
+  transition: var(--transition-speed);
+}
+
+/* YENİ EKLENDİ:
+  Hover efekti sadece bayrağa uygulanıyor.
+  Metin (.skill-item p) sabit kalıyor.
+*/
+#diller .skill-item:hover .language-flag-circle {
+  transform: translateY(-5px); /* Sadece bayrağı kaldır */
+
+  /* (İsteğe bağlı) Hover durumunda gölgeyi daha belirgin yap */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* --- YENİ EKLENDİ: Sertifikalar Bölümü (portfolyo.html) --- */
+#sertifikalar {
+  /* Arka planı beyaz yapar (varsayılan) */
+  background-color: var(--background-solid);
+}
+
+#sertifikalar h2 {
+  color: var(--primary-color);
+}
+
+/* --- YENİ EKLENDİ: Projeler Bölümü (projeler.html) --- */
+#projeler {
+  /* Arka planı beyaz yapar (varsayılan) */
+  background-color: var(--background-solid);
+}
+
+#projeler h2 {
+  color: var(--primary-color);
+}
+
+/* Proje Kartı Genel Stili */
+.project-card {
+  /* Bootstrap'in .card sınıfına benzer temel stil */
+  border: 1px solid var(--secondary-color);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-light);
+  overflow: hidden; /* Resmin köşelerini yuvarlatmak için */
+  transition: var(--transition-speed);
+  background-color: var(--background-solid);
+  height: 100%; /* Sütunların eşit yükseklikte olmasını sağlar */
+}
+
+/* Kart Hover Efekti */
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-dark);
+}
+
+/* Resim Link Konteyneri (Overlay'i pozisyonlamak için) */
+.project-image-link {
+  position: relative; /* Overlay için */
+  display: block; /* Tam genişlik kaplaması için */
+}
+
+/* Resim Stili */
+.project-card .card-img-top {
+  /* Farklı boyuttaki resimlerin kartı bozmaması için */
+  aspect-ratio: 16 / 10; /* Resim en-boy oranı (ayarlayabilirsiniz) */
+  object-fit: cover;
+  transition: transform 0.3s ease; /* Yakınlaşma efekti için */
+}
+
+/* Resim Hover: Yakınlaşma */
+.project-card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+/* Hover Overlay Stili */
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 103%;
+  height: 103%;
+  background-color: rgba(0, 0, 0, 0.5); /* Yarı şeffaf siyah */
+
+  /* İkonu ortalamak için */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Başlangıçta görünmez yap */
+  opacity: 0;
+  transition: opacity var(--transition-speed);
+}
+
+/* Hover Overlay İkonu */
+.project-overlay i {
+  font-size: 3rem; /* İkon boyutu */
+  color: #fff; /* İkon rengi */
+}
+
+/* Kart Hover: Overlay'i görünür yap */
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+/* Kart Gövdesi (Padding) */
+.project-card .card-body {
+  padding: 1.25rem;
+}
+
+/* Proje Başlığı Stili */
+.project-title {
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0; /* Ekstra boşluk olmasın */
+}
+
+/* --- Kayan Logolar Bölümü (JS Animasyon için) --- */
+
+#referanslar h3 {
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+}
+
+/* Dış Konteyner: Tam genişlikte, taşmayı gizler */
+.logos-scroll-container {
+  overflow: hidden;
+  background: white;
+  /* Kenarlara fade efekti */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    hsl(0 0% 100% / 0),
+    hsl(0 0% 100% / 1) 10%,
+    hsl(0 0% 100% / 1) 90%,
+    hsl(0 0% 100% / 0)
+  );
+  mask-image: linear-gradient(
+    to right,
+    hsl(0 0% 100% / 0),
+    hsl(0 0% 100% / 1) 10%,
+    hsl(0 0% 100% / 1) 90%,
+    hsl(0 0% 100% / 0)
+  );
+  padding: 1.5rem 0;
+}
+
+/* İç Konteyner: Logoları tutar, JS ile hareket edecek */
+.logos-slide {
+  display: inline-block;
+  white-space: nowrap; /* ÖNEMLİ */
+}
+
+/* Logoların Stili (GÜNCELLENDİ: Transition eklendi) */
+.logos-slide img {
+  height: 60px;
+  width: auto;
+  margin: 0 40px;
+  vertical-align: middle;
+  /* YENİ: Hover efekti için yumuşak geçiş */
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* YENİ: Resimlere hover efekti (opaklık) */
+.logos-slide img:hover {
+  opacity: 0.75; /* Hafif soluklaştır */
+  /* İsteğe bağlı: cursor: pointer; */
+}
+/* Mobil için İş Geçmişi Kartı Düzenlemesi */
+@media (max-width: 768px) {
+  /* Bootstrap'in .col-md-2 sınıfı otomatik olarak 
+    bu bölümde logonun üste gelmesini sağlar.
+  */
+
+  /* Mobil görünümde logo için daha fazla dolgu (padding) */
+  .job-logo-container {
+    padding: 2rem 1rem;
+
+    /* Gerekirse logo boyutunu mobil için ayarlayabilirsiniz */
+    /* .job-logo { max-width: 80px; } */
+  }
+
+  .job-content {
+    /* Mobil görünümde metin için padding ayarı */
+    padding: 1.5rem;
+  }
+}
+
+/* --- Mobil için responsive ayarlamalar --- */
+@media (max-width: 768px) {
+  #hero-section h1 {
+    font-size: 2.5rem;
+  }
+  #hero-section .lead {
+    font-size: 1.25rem;
+  }
+
+  #galeri .carousel-item {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* --- Mobil için responsive ayarlamalar --- */
+@media (max-width: 768px) {
+  #hero-section h1 {
+    font-size: 2.5rem;
+  }
+  #hero-section .lead {
+    font-size: 1.25rem;
+  }
+
+  #galeri .carousel-item {
+    aspect-ratio: 4 / 3;
+  }
+
+  /* Hava durumu kartları (Yatayda 2 tane görünür) */
+  /* HTML'deki .col-6 sayesinde bu zaten sağlanıyor. */
+}
+
+/* --- Mobil için responsive ayarlamalar --- */
+@media (max-width: 768px) {
+  #hero-section h1 {
+    font-size: 2.5rem;
+  }
+  #hero-section .lead {
+    font-size: 1.25rem;
+  }
+
+  /* Galeri slider en-boy oranını mobil için dikeye yakın yapabiliriz */
+  #galeri .carousel-item {
+    aspect-ratio: 4 / 3; /* Mobil için 4:3 oranı */
+  }
+}
+
+/* --- Mobil için responsive ayarlamalar --- */
+@media (max-width: 768px) {
+  #hero-section h1 {
+    font-size: 2.5rem;
+  }
+  #hero-section .lead {
+    font-size: 1.25rem;
+  }
+
+  /* Hakkımda bölümü zaten Bootstrap'in col-md-* sınıfları sayesinde 
+    bu breakpoint'te (768px) otomatik olarak alt alta geçecektir.
+    Ek bir kurala gerek yoktur.
+  */
+}
