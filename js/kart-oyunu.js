@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cardDisplayArea = document.getElementById("card-display-area");
 
   // --- Dosya Yolu ve API Bilgileri ---
-  const PLAYER_LIST_URL = "futbolcular.txt"; // txt dosyasının web sunucusundaki yolu!
+  const PLAYER_LIST_URL = "../txts/footballer.txt"; // txt dosyasının web sunucusundaki yolu!
   // !!! GÜVENLİK UYARISI: API ANAHTARINI BURAYA ASLA GÖMMEYİN! BU SADECE ÖRNEKTİR!
   const GEMINI_API_KEY = "AIzaSyCVznpC77RsF-tex7dPv5gAsB2nPfcxl5k"; // KENDİ ANAHTARINIZ (GÜVENSİZ YÖNTEM!)
   const GEMINI_API_ENDPOINT =
@@ -180,3 +180,4 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Başlangıç ---
   loadPlayerNames(); // Sayfa yüklenince listeyi yüklemeye başla
 }); // DOMContentLoaded end
+
