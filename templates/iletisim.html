@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale-1.0" />
+
+    <title>Bartu Özaşçı - İletişim</title>
+    <meta
+      name="description"
+      content="Bartu Özaşçı'nın kişisel portfolyo sitesi. Projelerimi ve hakkımdaki bilgileri burada bulabilirsiniz."
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+
+  <body class="d-flex flex-column min-vh-100">
+    <header>
+      <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">
+            <img
+              src="../img/site_Logo.png"
+              alt="Bartu Özaşçı Logo"
+              class="custom-logo"
+            />
+          </a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Ana Sayfa</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="portfolyo.html">Portfolyo</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="projeler.html">Projeler</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="iletisim.html"
+                  >İletişim</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section id="iletisim-formu" class="py-5">
+      <div class="container" style="padding-top: 50px">
+        <div class="row text-center mb-5">
+          <div class="col">
+            <h2 class="display-6 fw-bold">Bana Ulaşın</h2>
+            <p class="lead text-muted">Tavsiyelerinizi Bekliyorum...</p>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <form action="https://formspree.io/f/mzzjnzad" method="POST">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="fullname" class="form-label"
+                    >Adınız Soyadınız *</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="Ad"
+                    id="fullname"
+                    placeholder="Adınız Soyadınız"
+                    required
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="email" class="form-label"
+                    >E-posta Adresiniz *</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="E-posta"
+                    id="email"
+                    placeholder="mail@adresiniz.com"
+                    required
+                  />
+                </div>
+                <div class="col-12 mb-3">
+                  <label for="subject" class="form-label">Konu</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="Konu"
+                    id="subject"
+                    placeholder="Teklif / Soru / Diğer"
+                  />
+                </div>
+                <div class="col-12 mb-3">
+                  <label for="message" class="form-label">Mesajınız *</label>
+                  <textarea
+                    class="form-control"
+                    name="Mesaj"
+                    id="message"
+                    rows="6"
+                    placeholder="Mesajınızı buraya yazın..."
+                    required
+                  ></textarea>
+                </div>
+                <div class="col-12 text-center">
+                  <button type="submit" class="btn btn-primary btn-lg">
+                    Mesajı Gönder
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="iletisim-bilgileri" class="py-5 bg-dark text-white mt-auto">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-4 mb-4 mb-md-0">
+            <i class="bi bi-envelope-fill display-4 text-white mb-3"></i>
+            <h3 class="fw-bold">Email</h3>
+            <p class="text-white-50">bartuozasci@gmail.com</p>
+          </div>
+
+          <div class="col-md-4 mb-4 mb-md-0">
+            <i class="bi bi-telephone-fill display-4 text-white mb-3"></i>
+            <h3 class="fw-bold">Telefon</h3>
+            <p class="text-white-50">+90 (541) 938 45 26</p>
+          </div>
+
+          <div class="col-md-4">
+            <i class="bi bi-geo-alt-fill display-4 text-white mb-3"></i>
+            <h3 class="fw-bold">Adres</h3>
+            <p class="text-white-50">Eskişehir, Türkiye</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer py-4">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <span>&copy; 2025 Bartu Özaşçı. Tüm hakları saklıdır.</span>
+          </div>
+
+          <div class="col-md-6 text-center text-md-end">
+            <a
+              href="https://www.instagram.com/bartuozsci?igsh=aXR4eXhoYzF1dnd2"
+              target="_blank"
+              class="social-icon"
+            >
+              <i class="bi bi-instagram"></i>
+            </a>
+
+            <a href="mailto:bartuozasci@gmail.com" class="social-icon">
+              <i class="bi bi-envelope-fill"></i>
+            </a>
+
+            <a
+              href="https://www.tiktok.com/@bartuozsci?_t=ZS-90ngGCk1x7V&_r=1"
+              target="_blank"
+              class="social-icon"
+            >
+              <i class="bi bi-tiktok"></i>
+            </a>
+
+            <a
+              href="https://snapchat.com/t/fKJDdviP"
+              target="_blank"
+              class="social-icon"
+            >
+              <i class="bi bi-snapchat"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../js/script.js"></script>
+  </body>
+</html>
