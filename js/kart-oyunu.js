@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Dosya Yolu ve API Bilgileri ---
   const PLAYER_LIST_URL = "../txts/footballer.txt"; // txt dosyasının web sunucusundaki yolu!
   // !!! GÜVENLİK UYARISI: API ANAHTARINI BURAYA ASLA GÖMMEYİN! BU SADECE ÖRNEKTİR!
-  const GEMINI_API_KEY = "AIzaSyCVznpC77RsF-tex7dPv5gAsB2nPfcxl5k"; // KENDİ ANAHTARINIZ (GÜVENSİZ YÖNTEM!)
+  const GEMINI_API_KEY = ""; // KENDİ ANAHTARINIZ (GÜVENSİZ YÖNTEM!)
   const GEMINI_API_ENDPOINT =
     "https://varsayimsal-gemini-image-api.googleapis.com/v1/generateImage";
   // ------------------------------------
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function getPlayerImage(playerName) {
     if (
       !GEMINI_API_KEY ||
-      GEMINI_API_KEY === "AIzaSyCVznpC77RsF-tex7dPv5gAsB2nPfcxl5k"
+      GEMINI_API_KEY === ""
     ) {
       // API anahtarı yoksa veya ayarlanmamışsa direkt placeholder döndür
       return PLACEHOLDER_IMAGE_URL;
@@ -180,3 +180,4 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Başlangıç ---
   loadPlayerNames(); // Sayfa yüklenince listeyi yüklemeye başla
 }); // DOMContentLoaded end
+
