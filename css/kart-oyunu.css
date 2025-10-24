@@ -1,0 +1,88 @@
+/* css/kart-oyunu.css - Futbolcu Kart Oyunu Stilleri */
+
+#kart-oyunu-futbol {
+  background-color: #f8f9fa; /* Açık gri arka plan */
+}
+
+/* Futbolcu Kartı Genel Stili */
+.football-card {
+  background-color: var(--background-solid, white);
+  border-radius: 0.75rem; /* Yuvarlak köşeler */
+  box-shadow: var(--shadow-light, 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075));
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Resmin köşeleri için */
+  border-width: 5px; /* Çerçeve kalınlığı */
+  border-style: solid;
+  /* KÖŞE ETİKETİ İÇİN ÖNEMLİ */
+  position: relative;
+}
+
+/* Kart Hover Efekti */
+.football-card:hover {
+  transform: translateY(-5px) scale(1.02); /* Hafif kalkma ve büyüme */
+  box-shadow: var(--shadow-dark, 0 0.5rem 1rem rgba(0, 0, 0, 0.15));
+}
+
+/* Kart Resim Alanı */
+.football-card .card-img-top {
+  width: 100%;
+  aspect-ratio: 3 / 4; /* Dikey kart oranı */
+  object-fit: cover; /* Resmi doldur/kırp */
+  object-position: center top;
+  background-color: #e9ecef; /* Resim yüklenemezse gri arka plan */
+}
+
+/* Kart İsim Alanı */
+.football-card .card-body {
+  padding: 0.75rem 1rem;
+}
+
+.football-card .card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-color, black);
+  margin-bottom: 0;
+}
+
+/* Çerçeve Renkleri */
+.football-card.border-white {
+  /* Açık gri/beyaz çerçeve */
+  border-color: #dee2e6;
+}
+
+.football-card.border-gold {
+  /* Altın rengi çerçeve */
+  border-color: #ffd700;
+}
+
+/* YENİ EKLENDİ: Köşe Etiketi Konteyneri (Dik Üçgen) */
+.card-corner-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px; /* Üçgenin taban ve yüksekliği */
+  height: 60px;
+  z-index: 10; /* Resmin üzerinde dursun */
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  /* Dik Üçgen Şekli ve Opak Arka Plan */
+  background-color: rgba(0, 0, 0, 0.7); /* Opak siyah arka plan */
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+
+  /* DİKEY ÜÇGEN ŞEKLİ (Sol Üst) */
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  /* Bu, sol üst köşeyi taban 60px, yükseklik 60px olan bir üçgen yapar. */
+}
+
+/* YENİ EKLENDİ: Üçgenin İçindeki Numara (Ortalama) */
+.card-corner-badge span {
+  /* Numarayı üçgenin içine tam yerleştirmek için */
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
