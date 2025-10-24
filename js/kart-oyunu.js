@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Dosya Yolu ve API Bilgileri ---
   // !!! GÜVENLİK RİSKİ! BU ANAHTARINIZ HERKESE AÇIK OLACAKTIR!
-  const GEMINI_API_KEY = "";
+  const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE";
   const GEMINI_API_ENDPOINT =
     "https://varsayimsal-gemini-image-api.googleapis.com/v1/generateImage";
 
@@ -176,4 +176,3 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Başlangıç ---
   // loadPlayerNamesFromTxt() zaten bir kere çağrıldı.
 }); // DOMContentLoaded end
-
